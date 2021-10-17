@@ -6,50 +6,69 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Magic Daniel</title>
+
+    <style>
+        html {
+            font-size: 2em;
+        }
+
+        select {
+            font-size: 1em;
+        }
+
+        body {
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
 
-<label>
-    Valeur:
-    <select id="value">
-        <option label="Deux" value="2" />
-        <option label="Trois" value="3" />
-        <option label="Quatre" value="4" />
-        <option label="Cinq" value="5" />
-        <option label="Six" value="6" />
-        <option label="Sept" value="7" />
-        <option label="Huit" value="8" />
-        <option label="Neuf" value="9" />
-        <option label="Dix" value="10" />
-        <option label="Valet" value="J" />
-        <option label="Dame" value="Q" />
-        <option label="Roi" value="K" />
-        <option label="As" value="A" />
-    </select>
-</label>
-<label>
-    Couleur:
-    <select id="color">
-        <option label="Pique" value="S" />
-        <option label="Carreau" value="D" />
-        <option label="Trêfle" value="C" />
-        <option label="Coeur" value="H" />
-    </select>
-</label>
-
-<div>
-    <img id="img" src="img/AS.svg" />
+<div style="display:flex; flex-direction: column; height: 100%">
+    <div>
+        <label>
+            Valeur:
+            <select id="value">
+                <option label="Deux" value="2">Deux</option>
+                <option label="Trois" value="3">Trois</option>
+                <option label="Quatre" value="4">Quatre</option>
+                <option label="Cinq" value="5">Cinq</option>
+                <option label="Six" value="6">Six</option>
+                <option label="Sept" value="7">Sept</option>
+                <option label="Huit" value="8">Huit</option>
+                <option label="Neuf" value="9">Neuf</option>
+                <option label="Dix" value="10">Dix</option>
+                <option label="Valet" value="J">Valet</option>
+                <option label="Dame" value="Q">Dame</option>
+                <option label="Roi" value="K">Roi</option>
+                <option label="As" value="A">As</option>
+            </select>
+        </label>
+        <label>
+            Couleur:
+            <select id="color">
+                <option label="Pique" value="S">Pique</option>
+                <option label="Carreau" value="D">Carreau</option>
+                <option label="Trêfle" value="C">Trêfle</option>
+                <option label="Coeur" value="H">Coeur</option>
+            </select>
+        </label>
+    </div>
+    <div style="flex-grow: 1;">
+        <img id="img" src="img/AS.svg" style="height: 100%;"/>
+    </div>
 </div>
 
 <script>
     document.addEventListener("load", () => {
         changeCard();
     });
+
     function changeCard() {
         const value = document.querySelector("#value").value;
         const color = document.querySelector("#color").value;
         document.querySelector("#img").setAttribute("src", "img/" + value + color + ".svg");
     }
+
     document.querySelector("#value").addEventListener("change", (e) => {
         changeCard();
     });
